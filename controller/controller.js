@@ -2,8 +2,7 @@ const service = require("../service/service");
 
 exports.matchDetails = async (req, res, next) => {
     try {
-        const { id } = req?.params;
-        const url = `https://zplay1.in/pb/api/v1/events/matches/${id}`;
+        const url = `https://central.zplay1.in/pb/api/v1/events/matches/4`;
 
         const matchData = await service.scraping(url);
         return res.status(200).json({ message: 'match details data', data: matchData });
@@ -16,7 +15,7 @@ exports.matchDetails = async (req, res, next) => {
 exports.matchDetailsById = async (req, res, next) => {
     try {
         const { id } = req?.params;
-        const url = `https://zplay1.in/pb/api/v1/events/matchDetails/${id}`;
+        const url = `https://central.zplay1.in/pb/api/v1/events/matchDetails/${id}`;
 
         const matchData = await service.scraping(url);
         return res.status(200).json({ message: 'match details by id data', data: matchData });
