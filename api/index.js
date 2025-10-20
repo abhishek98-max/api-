@@ -1,6 +1,7 @@
 const express = require('express');
-const app = express();
 const route = require("../router/route");
+
+const app = express();
 
 // Middleware
 app.use(express.json());
@@ -12,6 +13,9 @@ app.use('/api/v1', route);
 app.get('/', (req, res) => {
     res.json({ message: 'API is running!', version: '1.0.0' });
 });
+
+// For Vercel serverless - ensure app is listening
+app.listen = () => {};
 
 // Export for Vercel
 module.exports = app;
